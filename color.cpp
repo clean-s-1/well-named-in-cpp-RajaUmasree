@@ -3,35 +3,32 @@
 
 using namespace std;
 
-color::colorPair color::GetColorFromPairNumber(int pairNumber) {
+TelCoColorCoder::colorPair TelCoColorCoder::GetColorFromPairNumber(int pairNumber) {
         int zeroBasedPairNumber = pairNumber - 1;
-        color::MajorColor majorColor = 
-            (color::MajorColor)(zeroBasedPairNumber / (color::numberOfMinorColors));
-        color::MinorColor minorColor =
-            (color::MinorColor)(zeroBasedPairNumber % (color::numberOfMinorColors));
+        TelCoColorCoder::MajorColor majorColor = 
+            (TelCoColorCoder::MajorColor)(zeroBasedPairNumber / (TelCoColorCoder::numberOfMinorColors));
+        TelCoColorCoder::MinorColor minorColor =
+            (TelCoColorCoder::MinorColor)(zeroBasedPairNumber % (TelCoColorCoder::numberOfMinorColors));
       
-        return color::colorPair(majorColor,minorColor);
+        return TelCoColorCoder::colorPair(majorColor,minorColor);
 }
 
-int color::GetPairNumberFromColor(color::MajorColor major, color::MinorColor minor) {
-        return major * color::numberOfMinorColors + minor + 1;
+int TelCoColorCoder::GetPairNumberFromColor(TelCoColorCoder::MajorColor major, TelCoColorCoder::MinorColor minor) {
+        return major * TelCoColorCoder::numberOfMinorColors + minor + 1;
 }
 
-color::MajorColor color::colorPair::getMajorColor() {
+TelCoColorCoder::MajorColor TelCoColorCoder::colorPair::getMajorColor() {
            return majorColor;
 }
        
-color::MinorColor color::colorPair::getMinorColor() {
+TelCoColorCoder::MinorColor TelCoColorCoder::colorPair::getMinorColor() {
            return minorColor;
 }
- std::string color::colorPair::ToString() {
-                std::string colorPairStr = color::MajorColorNames[majorColor];
+ std::string TelCoColorCoder::colorPair::ToString() {
+                std::string colorPairStr = TelCoColorCoder::MajorColorNames[majorColor];
                 colorPairStr += " ";
-                colorPairStr += color::MinorColorNames[minorColor];
+                colorPairStr += TelCoColorCoder::MinorColorNames[minorColor];
                 return colorPairStr;
             }
 
 
-int main() {
-    int y = color::GetPairNumberFromColor(color::WHITE,color::ORANGE);
-}
