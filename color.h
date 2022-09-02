@@ -28,7 +28,7 @@ class colorPair {
        colorPair (MajorColor major, MinorColor minor) : majorColor{major} , minorColor{minor} {}
        MajorColor getMajorColor();
        MinorColor getMinorColor();
-       string makepair();
+       string ToString();
 };
 
 colorPair GetColorFromPairNumber(int pairNumber);
